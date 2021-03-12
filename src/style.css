@@ -1,12 +1,5 @@
 <style>
 
-    #currentButton {
-      font-size: 16px;
-      position: fixed;
-      top: 49px;
-      left: 380px;
-    }
-
     h1 {
       font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
         sans-serif;
@@ -74,6 +67,12 @@
       position: fixed;
       top: 100px;
       left: 20px;
+    }
+
+     #currentButton {
+      position: fixed;
+      top: 49px;
+      left: 380px;
     }
 
     #row {
