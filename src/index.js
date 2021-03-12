@@ -62,7 +62,7 @@ function convertToCelsius() {
 
   let city = cityInput.innerHTML;
   let apiKey = "a06569d1dceff8eaf6d3eaf85c4585eb";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(showCelsiusTemp);
 }
@@ -74,7 +74,7 @@ function convertToFahrenheit() {
   let cityInput = document.querySelector("#city");
 
   let city = cityInput.innerHTML;
-  let units = "metric";
+  let units = "imperial";
   let apiKey = "a06569d1dceff8eaf6d3eaf85c4585eb";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
 
