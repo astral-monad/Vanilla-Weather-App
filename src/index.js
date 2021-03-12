@@ -31,8 +31,9 @@ function searchCity(city) {
   let units = "imperial";
   let apiKey = "a06569d1dceff8eaf6d3eaf85c4585eb";
   let apiURl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-
   axios.get(apiURl).then(displayWeather);
+   apiUrl=`https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(showForecast);
 }
 
 let searchForm = document.querySelector("#search-form");
@@ -105,4 +106,26 @@ function displayPosition(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayWeather);
 }
+
+
+function showForecast(response){
+    let forecastElement=document.querySelector("#forecast");
+    let forecast=null ;
+    forecastElement.innerHTML=null;
+    for(let index=0;index<6;index++)
+    {
+        forecast=response.data.list[index];
+        forecastElement.innerHTML+=
+            `<div class="col-2">
+                <h5>
+                    ${formatTime(forecast.dt*1000)}
+                </h5>
+                <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" alt="${forecast.weather[0].description}"/>
+                <div class="forecast-temperature"> 
+                    <strong>${Math.round(forecast.main.temp_max)}°</strong> ${Math.round(forecast.main.temp_min)}°
+                </div>
+            </div>`;
+    }
+}
+
 
