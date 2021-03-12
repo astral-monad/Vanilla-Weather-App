@@ -34,7 +34,7 @@ function searchCity(city) {
 
   axios.get(apiURl).then(displayWeather);
 
-  apiCityUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiCityUrl).then(displayForecast);
 }
 
