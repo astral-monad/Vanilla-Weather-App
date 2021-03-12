@@ -109,18 +109,6 @@ function displayWeather(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-function showPosition(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(displayPosition);
-}
-
-function displayPosition(position) {
-  let latitude = position.coords.latitude;
-  let longitude = position.coords.longitude;
-  let apiKey = `a06569d1dceff8eaf6d3eaf85c4585eb`;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
-  axios.get(apiUrl).then(displayWeather);
-}
 
 function displayForecast (response) {
 let forecastElement = document.querySelector("#forecast");
@@ -131,7 +119,7 @@ for (let index = 0; index < 6; index++){
   forecast = response.data.list[index];
   forecastElement.innerHTML += `  
                 <div class="col-2">
-                <h3 id="time1">${formatHours(forecast.dt*1000)}</h3>
+                <h3 id="time">${formatHours(forecast.dt*1000)}</h3>
                 <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png">
                 <h5 class="degrees"><strong>${Math.round(forecast.main.temp_max)}°</strong>/ ${Math.round(forecast.main.temp_min)}°</h5>
             </div>`;
@@ -139,5 +127,24 @@ for (let index = 0; index < 6; index++){
 }
 }
 
+function getCurrentLocation (event){
+  event.preventDefault();
+   navigator.geolocation.getCurrentPosition(searchLocation);
+}
+function searchLocation (position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apiKey = "adfd65ee729dfdb8d93f0ffbb4c5f25e";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`
+
+  axios.get(apiUrl).then(showWeatherSearch);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`
+  axios.get(apiUrl).then(displayForecast);
+}
+
+  let currentLocationButton = document.querySelector("#currentButton")
+  currentLocationButton.addEventListener("click", getCurrentLocation)
 
 searchCity("Copenhagen");
