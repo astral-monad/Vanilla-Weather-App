@@ -128,9 +128,9 @@ function showForecast(response) {
   for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `<div class="col-2">
-              <h3>
+              <h5>
                   ${formatTime(forecast.dt * 1000)}
-              </h3>
+              </h5>
               <img src="http://openweathermap.org/img/wn/${
                 forecast.weather[0].icon
               }@2x.png" alt="${forecast.weather[0].description}"/>
