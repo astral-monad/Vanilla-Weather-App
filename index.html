@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" type="text/css"href="src/style.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+  <form class="weather-search-form"
+  id="search-form">
+ <input
+type="search"
+placeholder="Enter a city"
+autofocus="on"
+autocomplete="off"
+id="city-input"
+class="form-control shadow-sm"
+/><form>
+<input type="submit" /></form>
+<h1><span id="temp">46</span>° 
+  <sup class="temp-type">
+  <a href="#" id="fahrenheit-link">F</a> |
+  <a href="#" id="celsius-link">C</a></sup></h1>
+  <input type="submit" value="Current" class="search" id="currentButton" />
+  <h3><div id="description"<br />Partially cloudy</h3></div>
+    <h4>Thursday 16:00</h4>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-2">
+          <img id="icon"
+            src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/56/sun-behind-cloud_26c5.png"
+          />
+        </div>
+        <div class="col-2">
+          Humidity: <span id="humidity">44</span>
+        </div>
+        <div class="col-2">
+          Wind: <span id="wind">7</span>km/h        </div>
+      </div>
+    </div>
+
+    <h2 id = "city">Copenhagen</h2>
+    <br />
+
+    <div class="row forecast" id="forecast"></div>
+    
+    <div id="github"><a href="https://github.com/westher0870/WeatherApp">Open-source code</a> by Wanyoung Kim</div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
