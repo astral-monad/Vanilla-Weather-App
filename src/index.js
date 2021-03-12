@@ -41,6 +41,8 @@ function searchCity(city) {
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
 
+search("Copenhagen");
+
 function showCelsiusTemp(response) {
   let celsiusTemp = document.querySelector("#temp");
   celsiusTemp.innerHTML = Math.round(response.data.main.temp);
@@ -78,8 +80,6 @@ fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
 let currentButton = document.querySelector("#currentButton");
 currentButton.addEventListener("click", showPosition);
-
-cityDefault("Copenhagen");
 
 function displayWeather(response) {
   console.log(response);
