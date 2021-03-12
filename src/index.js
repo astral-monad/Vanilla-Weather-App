@@ -122,6 +122,20 @@ function displayPosition(position) {
   axios.get(apiUrl).then(displayWeather);
 }
 
+function showForecastDays(timestamp) {
+  let today = new Date(timestamp);
+  let dayIndex = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = dayIndex[today.getDay()];
+  return day;
+}
 
 function showForecast(response) {
   let forecastElement = document.querySelector("#forecast");
@@ -131,7 +145,8 @@ function showForecast(response) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += forecastElement.innerHTML = `<div class="col-2">
                 <h5>
-                    ${formatTime(forecast.dt * 1000)}
+                   ${showForecastDays(
+                dailyForecast.dt * 1000)}
                 </h5>
                 <img src="http://openweathermap.org/img/wn/${
                   forecast.weather[0].icon
