@@ -28,10 +28,11 @@ function search(event) {
 }
 
 function searchCity(city) {
+  let units = "imperial"
   let apiKey = "a06569d1dceff8eaf6d3eaf85c4585eb";
-  let apiURl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+  let apiURl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiURl).then(displayWeather);
-   apiUrl=`https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${apiKey}&units=imperial`;
+   apiUrl=`https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${apiKey}&units=${units}`;
     axios.get(apiUrl).then(showForecast);
 }
 
@@ -46,7 +47,7 @@ function convertToCelsius() {
   let cityInput = document.querySelector("#city");
 
   let city = cityInput.innerHTML;
-  let units = "metric";
+  let units = "imperial";
   let apiKey = "a06569d1dceff8eaf6d3eaf85c4585eb";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
 
