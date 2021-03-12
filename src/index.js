@@ -138,7 +138,7 @@ function searchLocation (position) {
   let units = "imperial";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`
 
-  axios.get(apiUrl).then(showWeatherSearch);
+  axios.get(apiUrl).then(displayWeather);
 
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`
   axios.get(apiUrl).then(displayForecast);
