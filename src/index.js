@@ -107,10 +107,11 @@ function displayPosition(position) {
 }
 
 
-function showForecast(response){
-    let forecastElement=document.querySelector("#forecast");
-    let forecast=null ;
-    forecastElement.innerHTML=null;
+function showForecast(response) {
+  console.log(response.data);
+    let forecastElement = document.querySelector("#forecast");
+    let forecast = response.data.list[0];
+    forecastElement.innerHTML = #forecast;
     for(let index=0;index<6;index++)
     {
         forecast=response.data.list[index];
