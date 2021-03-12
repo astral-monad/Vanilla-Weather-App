@@ -14,10 +14,24 @@ let days = [
   "Wednesday",
   "Thursday",
   "Friday",
-  "Saturday"
+  "Saturday",
 ];
 let day = days[now.getDay()];
 h4.innerHTML = `${day} ${hours}:${minutes} `;
+
+function formatTime(timestamp) {
+  let time = new Date(timestamp);
+  let hours = now.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${hours}:${minutes}`;
+}
 
 function search(event) {
   event.preventDefault();
@@ -32,8 +46,8 @@ function searchCity(city) {
   let apiKey = "a06569d1dceff8eaf6d3eaf85c4585eb";
   let apiURl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiURl).then(displayWeather);
-   apiUrl= `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${apiKey}&units=${units}`;
-    axios.get(apiUrl).then(showForecast);
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(showForecast);
 }
 
 let searchForm = document.querySelector("#search-form");
@@ -87,9 +101,12 @@ function displayWeather(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
-      let iconElement=document.querySelector("#icon");
-   iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-    iconElement.setAttribute("alt",response.data.weather[0].description);
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function showPosition(event) {
@@ -105,25 +122,26 @@ function displayPosition(position) {
   axios.get(apiUrl).then(displayWeather);
 }
 
-
 function showForecast(response) {
-       let forecastElement = document.querySelector("#forecast");
-    let forecast = response.data.list[0];
-  forecastElement.innerHTML = #forecast;
-    for(let index=0;index<6;index++)
-    {
-        forecast=response.data.list[index];
-        forecastElement.innerHTML+=
-  forecastElement.innerHTML = 
-            `<div class="col-2">
+  let forecastElement = document.querySelector("#forecast");
+  let forecast = response.data.list[0];
+  forecastElement.innerHTML = null;
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += forecastElement.innerHTML = `<div class="col-2">
                 <h5>
-                    ${formatTime(forecast.dt*1000)}
+                    ${formatTime(forecast.dt * 1000)}
                 </h5>
-                <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" alt="${forecast.weather[0].description}"/>
+                <img src="http://openweathermap.org/img/wn/${
+                  forecast.weather[0].icon
+                }@2x.png" alt="${forecast.weather[0].description}"/>
                 <div class="forecast-temperature"> 
-                    ${Math.round(forecast.main.temp_max)}°/${Math.round(forecast.main.temp_min)}°
-                   <strong>${Math.round(forecast.main.temp_max)}°</strong>/${Math.round(forecast.main.temp_min)}°
+                   <strong>${Math.round(
+                     forecast.main.temp_max
+                   )}°</strong>/${Math.round(forecast.main.temp_min)}°
                 </div>
             </div>`;
-    }
+  }
+}
 
+searchCity("Copenhagen");
