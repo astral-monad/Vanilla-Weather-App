@@ -101,9 +101,8 @@ function showPosition(event) {
 function displayPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
-  let units = "imperial";
   let apiKey = `a06569d1dceff8eaf6d3eaf85c4585eb`;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayWeather);
 }
 
