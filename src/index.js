@@ -108,10 +108,10 @@ function displayPosition(position) {
 
 
 function showForecast(response) {
-  console.log(response.data);
     let forecastElement = document.querySelector("#forecast");
     let forecast = response.data.list[0];
-    forecastElement.innerHTML = #forecast;
+console.log(forecast)
+  forecastElement.innerHTML = #forecast;
     for(let index=0;index<6;index++)
     {
         forecast=response.data.list[index];
@@ -122,7 +122,7 @@ function showForecast(response) {
                 </h5>
                 <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" alt="${forecast.weather[0].description}"/>
                 <div class="forecast-temperature"> 
-                    <strong>${Math.round(forecast.main.temp_max)}°</strong> ${Math.round(forecast.main.temp_min)}°
+                    ${Math.round(forecast.main.temp_max)}°/${Math.round(forecast.main.temp_min)}°
                 </div>
             </div>`;
     }
