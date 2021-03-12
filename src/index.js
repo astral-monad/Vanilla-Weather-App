@@ -122,40 +122,26 @@ function displayPosition(position) {
   axios.get(apiUrl).then(displayWeather);
 }
 
-function displayForecast(responseForecast) {
+
+function showForecast(response) {
   let forecastElement = document.querySelector("#forecast");
+  let forecast = response.data.list[0];
   forecastElement.innerHTML = null;
-  let forecast = null;
-  let currentDay = new Date();
-  let shortenedDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-  for (let i = 0; i < 6; i++) {
-    let j = i;
-    if (j + currentDay.getDay() > 6) {
-      j -= 7;
-    }
-    let day = shortenedDays[currentDay.getDay() + j];
-
-    forecast = responseForecast.data.daily[i];
-    forecastElement.innerHTML += ` 
-    <div class="col-2">
-        <div class="col">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">${day}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += forecastElement.innerHTML = `<div class="col-2">
+                <h5>
+                    ${formatTime(forecast.dt * 1000)}
+                </h5>
                 <img src="http://openweathermap.org/img/wn/${
-                  responseForecast.data.daily[i].weather[0].icon
-                }@2x.png"/>
-              </h6>
-              <p class="card-text">
-                ${Math.round(responseForecast.data.daily[i].temp.day)}°C /
-                ${Math.round(responseForecast.data.daily[i].temp.night)}°C
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>`;
+                  forecast.weather[0].icon
+                }@2x.png" alt="${forecast.weather[0].description}"/>
+                <div class="forecast-temperature"> 
+                   <strong>${Math.round(
+                     forecast.main.temp_max
+                   )}°</strong>/${Math.round(forecast.main.temp_min)}°
+                </div>
+            </div>`;
   }
 }
 
