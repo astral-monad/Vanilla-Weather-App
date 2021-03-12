@@ -109,6 +109,13 @@ function displayWeather(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   let forecast = response.data.list[0];
