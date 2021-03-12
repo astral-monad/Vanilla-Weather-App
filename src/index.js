@@ -35,7 +35,7 @@ function searchCity(city) {
   axios.get(apiURl).then(displayWeather);
 
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
-  axios.get(apiCityUrl).then(displayForecast);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 let searchForm = document.querySelector("#search-form");
