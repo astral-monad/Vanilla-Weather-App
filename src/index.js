@@ -126,11 +126,21 @@ function showForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   let forecast = response.data.list[0];
   forecastElement.innerHTML = null;
+  
+  let currentDay = new Date();
+  let shortenedDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  for (let i = 0; i < 6; i++) {
+    let j = i;
+    if (j + currentDay.getDay() > 6) {
+      j -= 7;
+    }
+    let day = shortenedDays[currentDay.getDay() + j];
+    
   for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += forecastElement.innerHTML = `<div class="col-2">
-                <h5>
-                    ${formatTime(forecast.dt * 1000)}
+                <h5>${day}
                 </h5>
                 <img src="http://openweathermap.org/img/wn/${
                   forecast.weather[0].icon
