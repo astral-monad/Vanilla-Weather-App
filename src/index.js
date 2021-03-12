@@ -134,8 +134,8 @@ function getCurrentLocation (event){
 function searchLocation (position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let apiKey = "adfd65ee729dfdb8d93f0ffbb4c5f25e";
-  let units = "metric";
+  let apiKey = "a06569d1dceff8eaf6d3eaf85c4585eb";
+  let units = "imperial";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`
 
   axios.get(apiUrl).then(showWeatherSearch);
@@ -144,7 +144,7 @@ function searchLocation (position) {
   axios.get(apiUrl).then(displayForecast);
 }
 
-  let currentLocationButton = document.querySelector("#currentButton")
-  currentLocationButton.addEventListener("click", getCurrentLocation)
+  let currentLocationButton = document.querySelector("#currentButton");
+  currentLocationButton.addEventListener("click", getCurrentLocation);
 
 searchCity("Copenhagen");
