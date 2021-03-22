@@ -59,7 +59,7 @@ function displayForecast(response) {
     forecast = response.data.daily[index];
     forecastElement.innerHTML += `
     <div class="col-2">
-      <h3 class="forecast-days">
+      <h5 class="forecast-days">
         ${formatDay(forecast.dt * 1000)}
       </h3>
       <img
