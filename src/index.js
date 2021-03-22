@@ -33,6 +33,23 @@ function formatTime(timestamp) {
   return `${hours}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp);
+
+  let days = [
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat"
+  ];
+  let day = days[date.getDay()];
+  return `${day}`;
+}
+
+
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = null;
