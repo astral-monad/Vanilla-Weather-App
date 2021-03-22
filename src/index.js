@@ -65,7 +65,7 @@ function callForecast(response) {
   let latitude = response.data.city.coord.lat;
   let longitude = response.data.city.coord.lon;
   let apiKey = "a06569d1dceff8eaf6d3eaf85c4585eb";
-  let apiDailyUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,hourly,alerts&appid=${apiKey}&units=metric`;
+  let apiDailyUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,hourly,alerts&appid=${apiKey}&units=imperial`;
   axios.get(apiDailyUrl).then(displayForecast);
 }
 
@@ -98,7 +98,7 @@ function convertToCelsius() {
 
   let city = cityInput.innerHTML;
   let apiKey = "a06569d1dceff8eaf6d3eaf85c4585eb";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
   axios.get(apiUrl).then(showCelsiusTemp);
 }
