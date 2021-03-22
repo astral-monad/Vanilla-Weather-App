@@ -76,6 +76,13 @@
       max-width: 1000px;
     }
 
+    #weather {
+        max-width: 600px;
+        background-color: #FFFFFF;
+        margin: 30px auto;
+        padding: 20px;
+        border: 1px solid #000000}
+
     #forecast {
     position: fixed;
     top: 375px;
