@@ -4,9 +4,9 @@
       font-family: "Montserrat";
       font-size: 40px;
       color: lavender;
-      position: absolute;
-      top: 10px;
-      left: 80px;
+      position: fixed;
+      top: 255px;
+      left: 280px;
     }
 
     h2 {
