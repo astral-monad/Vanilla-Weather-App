@@ -74,15 +74,6 @@
       max-width: 1000px;
     }
 
-     #temp {
-      font-family: "Montserrat";
-      font-size: 40px;
-      color: lavender;
-      position: absolute;
-      top: 255px;
-      left: 280px;
-    }
-
     #forecast {
     font-family: "Montserrat";
     position: fixed;
