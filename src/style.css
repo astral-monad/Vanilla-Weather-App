@@ -1,8 +1,7 @@
 <style>
 
     h1 {
-      font-family: "Montserrat",
-        sans-serif;
+      font-family: "Montserrat";
       font-size: 40px;
       color: lavender;
       position: absolute;
@@ -11,8 +10,7 @@
     }
 
     h2 {
-      font-family:   font-family: "Montserrat",
-        sans-serif;
+      font-family: "Montserrat";
       font-size: 50px;
       color: grey;
       position: fixed;
@@ -86,7 +84,7 @@
       ul {list-style:none}
 
     #github {
-          font-family: "EB Garamond",
+      font-family: "EB Garamond";
       position: fixed;
       top: 590px;
     left: 20px;
