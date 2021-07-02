@@ -4,7 +4,7 @@
       font-family: "Montserrat";
       font-size: 40px;
       color: lavender;
-      position: fixed;
+      position: absolute;
       top: 255px;
       left: 280px;
     }
