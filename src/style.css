@@ -11,7 +11,7 @@
       color: #000000;
       position: absolute;
       top: 255px;
-      left: 280px;
+      left: 20px;
     }
 
     h2 {
@@ -31,7 +31,7 @@
       color: turquoise;
       position: fixed;
       top: 255px;
-      left: 20px;
+      left: 280px;
     }
 
     h4 {
