@@ -1,5 +1,10 @@
 <style>
 
+    body {
+        border: 2px solid;
+        border-color: gray;       
+    }
+
     h1 {
       font-family: "Montserrat";
       font-size: 40px;
